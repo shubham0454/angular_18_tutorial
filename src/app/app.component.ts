@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';  
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
   title = 'angular_18_tutorial';
 
   @HostListener('window:scroll')
@@ -18,6 +18,20 @@ export class AppComponent {
   @HostListener('contextmenu')
   orRightClick(event: any) {
    // event.preventDefault();
+  }
+  ngAfterViewInit() {
+    // You can manipulate the DOM here after view initialization
+    const element = document.querySelector('.dynamic-element');
+    if (element) {
+      element.textContent = 'DOM manipulated using document.querySelector!';
+    }
+  }
+  changeElement(){
+
+    const element = document.querySelector('.dynamic-elements');
+    if(element){
+      element.setAttribute('style','color:red; font-size:25px;');
+    }
   }
 
 

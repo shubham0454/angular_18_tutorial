@@ -19,7 +19,6 @@ export class DataBindingComponent {
   rollNo: number  = 123; 
   isIndian: boolean = true; 
   currentDate: Date = new Date(); 
-
   firstName =  signal("Chetan Jogi");
 
   constructor() {
